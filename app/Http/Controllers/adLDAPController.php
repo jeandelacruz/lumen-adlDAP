@@ -51,4 +51,24 @@ Class adLDAPController extends Controller {
         }
     }
 
+    public function disabledAccount($fieldSearch,$valSearch){
+        $user = $this->adldap->search()->whereEquals($fieldSearch, $valSearch)->first();
+        if($user) {
+            $user->setUserAccountControl(2)->save();
+            return $user;
+        } else {
+            return 'no existe';
+        }
+    }
+
+    public function enabledAccount($fieldSearch,$valSearch){
+        $user = $this->adldap->search()->whereEquals($fieldSearch, $valSearch)->first();
+        if($user) {
+            $user->setUserAccountControl(512)->save();
+            return $user;
+        } else {
+            return 'no existe';
+        }
+    }
+
 }

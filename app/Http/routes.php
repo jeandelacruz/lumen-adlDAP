@@ -22,3 +22,7 @@ $app->get('/update/{fieldSearch}/{valSearch}/{fieldUpdate}/{valUpdate}', 'adLDAP
 $app->get('/changePassword/{fieldSearch}/{valSearch}/{newPassword}', 'adLDAPController@changePassword');
 
 $app->get('/lockAccount/{fieldSearch}/{valSearch}', 'adLDAPController@lockAccount');
+
+$app->get('/disabledAccount/{fieldSearch}/{valSearch}', 'adLDAPController@disabledAccount');
+
+$app->get('/enabledAccount/{fieldSearch}/{valSearch}', 'adLDAPController@enabledAccount');
